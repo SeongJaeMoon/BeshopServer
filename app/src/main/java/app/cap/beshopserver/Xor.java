@@ -1,0 +1,32 @@
+package app.cap.beshopserver;
+
+import java.io.IOException;
+
+
+
+public class Xor {
+
+
+    private static String encryptDecrypt(String input) {
+        char[] key = {'K', 'C', 'Q'}; //임의의 문자 및 길이 배열이 될 수 있음
+        StringBuilder output = new StringBuilder();
+
+        for(int i = 0; i < input.length(); i++) {
+            output.append((char) (input.charAt(i) ^ key[i % key.length]));
+        }
+
+        return output.toString();
+    }
+
+    public static void main(String[] args) {
+        String encrypted = Xor.encryptDecrypt("kylewbanks.com");
+        System.out.println("Encrypted:" + encrypted);
+
+        String decrypted = Xor.encryptDecrypt(encrypted);
+        System.out.println("Decrypted:" + decrypted);
+    }
+
+
+
+
+}
